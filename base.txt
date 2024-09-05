@@ -1,0 +1,42 @@
+agente raze
+agente fade
+agente deadlock
+agente breach
+agente geeko
+agente jett
+agente skye
+agente kayo
+agente brimstone
+agente cypher
+agente sage
+agente killjoy
+
+sinergia raze + fade
+sinergia raze + breach
+sinergia raze + deadlock
+sinergia deadlock + geeko 
+sinergia jett + skye
+sinergia Jett + breach
+sinergia jett + kayo
+sinergia sage + raze
+sinergia sova + phoenix
+sinergia brimstone + cypher
+sinergia breach + brimstone
+sinergia breach + phoenix
+sinergia cypher + killjoy
+sinergia sage + sova
+sinergia jett + omen
+
+
+mapas bind raze + brimstone + skye + cypher + viper
+mapas bind raze + brimstone + skye + killjoy + viper
+mapas heaven jett + breach + fade + omem + killjoy
+mapas lotus + raze + fade + breach + chyfer omem
+
+encontrar raze
+
+// Saída esperada
+
+// sinergia com fade breach deadlock sage
+// composicao bind raze + brimstone + skye + cypher + viper
+// composicao bind raze + brimstone + skye + killjoy + viper
