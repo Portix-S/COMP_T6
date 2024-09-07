@@ -17,7 +17,7 @@ class Calculadora(ValorantVisitor) :
         for declaracao in ctx.declaracoes().declaracao():
             print(self.visitDeclaracao(declaracao))
 
-    # A linguagem TFT contém apenas declarações simples de escopo único
+    # A linguagem Valorant contém apenas declarações simples de escopo único
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
         print('Visitando declaracao\n')
 
@@ -30,11 +30,22 @@ class Calculadora(ValorantVisitor) :
     
     def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
         print(' Declaração mapa\n')
-        mapa: ValorantParser.CaracteristicaContext = ctx.mapa()
-        id_mapa = mapa.getText()
-        self.tabela.adicionar(id_mapa, Tipo.MAPA)
+        mapa = ctx.mapa().getText()
+        print(f'    Mapa: {mapa}')
+        
+        if ctx.COMPOSICAO():
+            print('    Composição encontrada')
+        
+        sinergia_completa = ctx.sinergia_completa()
+        if sinergia_completa:
+            unidades = [u.getText() for u in sinergia_completa.unidade()]
+            print('    Sinergias:')
+            for unidade in unidades:
+                print(f'      {unidade}')
+        
+        self.tabela.adicionar(mapa, Tipo.MAPA)
         return super().visitDeclaracao_mapa(ctx)
-    
+
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
         print(ctx.getText())
         print(' Declaração sinergia\n')
@@ -57,17 +68,17 @@ class Calculadora(ValorantVisitor) :
             print('       ' + unidade)
 
         print('tabela')
-        for id, info in self.tabela.items():
-            print(f"ID: {id}, Tipo: {info.tipo}, Características: {info.caracteristicas}, Quantidade: {info.quantidade}")
 
-        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades=[unidade])
+        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades[0])
+        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades[1])
+
         return super().visitDeclaracao_sinergia(ctx)
     
     def visitDeclaracao_unidade(self, ctx:ValorantParser.Declaracao_unidadeContext):
         print(' Declaração unidade\n')
 
         # Obtendo o identificador de unidade
-        unidade: TFTParser.UnidadeContext = ctx.unidade()
+        unidade: ValorantParser.UnidadeContext = ctx.unidade()
         id_unidade = unidade.getText()
         print('     agente: ' + id_unidade)
 
