@@ -15,17 +15,6 @@ sinergia sinergia1 raze + fade
 sinergia sinergia2 raze + breach
 sinergia sinergia3 raze + deadlock
 sinergia sinergia4 deadlock + geeko 
-sinergia sinergia5 jett + skye
-sinergia sinergia6 Jett + breach
-sinergia sinergia7 jett + kayo
-sinergia sinergia8 sage + raze
-sinergia sinergia9 sova + phoenix
-sinergia sinergia10 brimstone + cypher
-sinergia sinergia11 breach + brimstone
-sinergia sinergia12 breach + phoenix
-sinergia sinergia13 cypher + killjoy
-sinergia sinergia14 sage + sova
-sinergia sinergia15 jett + omen
 
 
 mapa bind composicao raze + brimstone + skye + cypher + viper

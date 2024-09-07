@@ -13,19 +13,24 @@ class Calculadora(ValorantVisitor) :
 
     # Começo da árvore gerada pela análise sintática
     def visitPrograma(self, ctx: ValorantParser.ProgramaContext):
+        self.respostas.append(f'as unidades  ativam as sinergias')
+
         return super().visitPrograma(ctx)
 
     # A linguagem TFT contém apenas declarações simples de escopo único
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
+        self.respostas.append(f'as unidades  ativam as sinergias')
         return super().visitDeclaracao(ctx)
     
-    # def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
-    #     caracteristica: ValorantParser.CaracteristicaContext = ctx.caracteristica()
-    #     id_caracteristica = caracteristica.getText()
-    #     self.tabela.adicionar(id_caracteristica, Tipo.CARACTERISTICA)
-    #     return super().visitDeclaracao_mapa(ctx)
+    def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
+        self.respostas.append(f'as unidades  ativam as sinergias')
+        mapa: ValorantParser.CaracteristicaContext = ctx.mapa()
+        id_mapa = mapa.getText()
+        self.tabela.adicionar(id_mapa, Tipo.MAPA)
+        return super().visitDeclaracao_mapa(ctx)
     
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
+        self.respostas.append(f'as unidades  ativam as sinergias')
         sinergia: ValorantParser.SinergiaContext = ctx.sinergia()
         id_sinergia = sinergia.getText()
         caracteristica = ctx.caracteristica().getText()
@@ -34,6 +39,7 @@ class Calculadora(ValorantVisitor) :
         return super().visitDeclaracao_sinergia(ctx)
     
     def visitDeclaracao_unidade(self, ctx:ValorantParser.Declaracao_unidadeContext):
+        self.respostas.append(f'as unidades  ativam as sinergias')
         unidade: ValorantParser.UnidadeContext = ctx.unidade()
         id_unidade = unidade.getText()
         caracteristicas: list[str] = list()

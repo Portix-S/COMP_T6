@@ -17,6 +17,14 @@ def main(argv):
     output_stream = open(argv[2], 'w')
     # Gerando os tokens
     lexer = ValorantLexer(input_stream)
+    teste = lexer.getAllTokens()
+    for t in teste:
+        token_type = t.type
+        if token_type < len(lexer.symbolicNames):
+            token_name = lexer.symbolicNames[token_type]
+        else:
+            token_name = "UNKNOWN"  # Caso o token não tenha um nome definido
+        print(f"Token: {t.text}, Tipo: {token_name}, Linha: {t.line}, Coluna: {t.column}")
     # # Gerando o parser (Analisador sintático)
     tokens = CommonTokenStream(lexer)
     parser = ValorantParser(tokens)
@@ -36,6 +44,7 @@ def main(argv):
         valorantSemantico = ValorantSemantico()
         
         valorantSemantico.visitPrograma(arvore)
+        # print(arvore.toStringTree(recog=parser))
         for erro in ValorantSemanticoUtils.errosSemanticos:
             output_stream.write(erro + "\n")
         if len(ValorantSemanticoUtils.errosSemanticos) == 0:
