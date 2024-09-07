@@ -35,7 +35,7 @@ class ValorantVisitor(ParseTreeVisitor):
 
 
     # Visit a parse tree produced by ValorantParser#declaracao_mapas.
-    def visitDeclaracao_mapas(self, ctx:ValorantParser.Declaracao_mapasContext):
+    def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
         return self.visitChildren(ctx)
 
 
@@ -59,14 +59,14 @@ class ValorantVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ValorantParser#saida_sinergia_dupla.
-    def visitSaida_sinergia_dupla(self, ctx:ValorantParser.Saida_sinergia_duplaContext):
-        return self.visitChildren(ctx)
+    # # Visit a parse tree produced by ValorantParser#saida_sinergia_dupla.
+    # def visitSaida_sinergia_dupla(self, ctx:ValorantParser.Saida_sinergia_duplaContext):
+    #     return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ValorantParser#saida_mapa.
-    def visitSaida_mapa(self, ctx:ValorantParser.Saida_mapaContext):
-        return self.visitChildren(ctx)
+    # # Visit a parse tree produced by ValorantParser#saida_mapa.
+    # def visitSaida_mapa(self, ctx:ValorantParser.Saida_mapaContext):
+    #     return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by ValorantParser#programa.

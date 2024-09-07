@@ -11,29 +11,28 @@ agente cypher
 agente sage
 agente killjoy
 
-sinergia raze + fade
-sinergia raze + breach
-sinergia raze + deadlock
-sinergia deadlock + geeko 
-sinergia jett + skye
-sinergia Jett + breach
-sinergia jett + kayo
-sinergia sage + raze
-sinergia sova + phoenix
-sinergia brimstone + cypher
-sinergia breach + brimstone
-sinergia breach + phoenix
-sinergia cypher + killjoy
-sinergia sage + sova
-sinergia jett + omen
+sinergia sinergia1 raze + fade
+sinergia sinergia2 raze + breach
+sinergia sinergia3 raze + deadlock
+sinergia sinergia4 deadlock + geeko 
+sinergia sinergia5 jett + skye
+sinergia sinergia6 Jett + breach
+sinergia sinergia7 jett + kayo
+sinergia sinergia8 sage + raze
+sinergia sinergia9 sova + phoenix
+sinergia sinergia10 brimstone + cypher
+sinergia sinergia11 breach + brimstone
+sinergia sinergia12 breach + phoenix
+sinergia sinergia13 cypher + killjoy
+sinergia sinergia14 sage + sova
+sinergia sinergia15 jett + omen
 
 
-mapas bind raze + brimstone + skye + cypher + viper
-mapas bind raze + brimstone + skye + killjoy + viper
-mapas heaven jett + breach + fade + omem + killjoy
-mapas lotus + raze + fade + breach + chyfer omem
+mapa bind composicao raze + brimstone + skye + cypher + viper
+mapa bind composicao raze + brimstone + skye + killjoy + viper
+mapa heaven composicao jett + breach + fade + omem + killjoy
 
-encontrar raze
+encontrar sinergias para raze
 
 // Saída esperada
 

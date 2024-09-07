@@ -6,6 +6,7 @@ from ValorantParser import ValorantParser
 from ValorantParserErrorListener import ValorantParserErrorListener
 from ValorantLexer import ValorantLexer
 from ValorantSemanticoUtils import ValorantSemanticoUtils
+from ValorantSemantico import ValorantSemantico
 from Calculadora import Calculadora
 
 # Código responsável por ler os tokens gerados pela analisador léxico e salvar em um arquivo
@@ -32,9 +33,9 @@ def main(argv):
     try:
         arvore = parser.programa()
         # Executa o parser para análise sintática
-        ValorantSemantico = ValorantSemantico()
+        valorantSemantico = ValorantSemantico()
         
-        ValorantSemantico.visitPrograma(arvore)
+        valorantSemantico.visitPrograma(arvore)
         for erro in ValorantSemanticoUtils.errosSemanticos:
             output_stream.write(erro + "\n")
         if len(ValorantSemanticoUtils.errosSemanticos) == 0:

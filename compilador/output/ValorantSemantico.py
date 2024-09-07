@@ -18,14 +18,14 @@ class ValorantSemantico(ValorantVisitor) :
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
         return super().visitDeclaracao(ctx)
     
-    def visitDeclaracao_caracteristica(self, ctx:ValorantParser.Declaracao_caracteristicaContext):
-        caracteristica: ValorantParser.CaracteristicaContext = ctx.caracteristica()
-        id_caracteristica = caracteristica.getText()
-        if self.tabela.existe(id_caracteristica):
-            ValorantSemanticoUtils.adicionarErroSemantico(caracteristica.start, f'identificador {id_caracteristica} ja declarado anteriormente')
+    def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
+        mapa: ValorantParser.MapaContext = ctx.mapa()
+        id_mapa = mapa.getText()
+        if self.tabela.existe(id_mapa):
+            ValorantSemanticoUtils.adicionarErroSemantico(mapa.start, f'identificador {id_mapa} ja declarado anteriormente')
         else:
-            self.tabela.adicionar(id_caracteristica, Tipo.CARACTERISTICA)
-        return super().visitDeclaracao_caracteristica(ctx)
+            self.tabela.adicionar(id_mapa, Tipo.Mapa)
+        return super().visitDeclaracao_mapa(ctx)
     
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
         sinergia: ValorantParser.SinergiaContext = ctx.sinergia()
