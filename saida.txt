@@ -1,2 +1,1 @@
-Linha 30: erro sintatico proximo a EOF
-Fim da compilacao
+as unidades  ativam as sinergias

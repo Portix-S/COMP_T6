@@ -16,15 +16,8 @@ sinergia sinergia2 raze + breach
 sinergia sinergia3 raze + deadlock
 sinergia sinergia4 deadlock + geeko 
 
-
 mapa bind composicao raze + brimstone + skye + cypher + viper
 mapa bind composicao raze + brimstone + skye + killjoy + viper
 mapa heaven composicao jett + breach + fade + omem + killjoy
 
 encontrar sinergias para raze
-
-// Saída esperada
-
-// sinergia com fade breach deadlock sage
-// composicao bind raze + brimstone + skye + cypher + viper
-// composicao bind raze + brimstone + skye + killjoy + viper

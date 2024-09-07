@@ -13,6 +13,15 @@ WS: ( ' ' | '\t' | '\r' | '\n') -> skip;
 // Detecção de operação
 OP: '+';
 
+// Palavras reservadas
+AGENTE : 'agente';
+SINERGIA : 'sinergia';
+MAPA : 'mapa';
+ENCONTRAR : 'encontrar';
+COMPOSICAO : 'composicao';
+SINERGIAS : 'sinergias';
+PARA : 'para';
+
 // Variáveis
 IDENT : ('a'..'z'|'A'..'Z' | '_') ('_' | 'a'..'z'|'A'..'Z'|'0'..'9')* ;
 unidade: IDENT;
@@ -32,6 +41,6 @@ declaracoes: (declaracao)*;
 
 saida: 'encontrar' saida_sinergia;
 saida_sinergia: 'sinergias' 'para' unidade;
-saidas: (saida);
+saidas: (saida)*;
 
 programa: declaracoes saidas EOF;
