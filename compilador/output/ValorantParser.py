@@ -9,31 +9,31 @@ import sys
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r")
-        buf.write("[\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("Z\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t")
-        buf.write("\16\4\17\t\17\3\2\3\2\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\5")
-        buf.write("\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3")
-        buf.write("\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\5\nB\n")
-        buf.write("\n\3\13\7\13E\n\13\f\13\16\13H\13\13\3\f\3\f\3\f\3\r\3")
-        buf.write("\r\3\r\3\r\3\16\7\16R\n\16\f\16\16\16U\13\16\3\17\3\17")
-        buf.write("\3\17\3\17\3\17\2\2\20\2\4\6\b\n\f\16\20\22\24\26\30\32")
-        buf.write("\34\2\2\2P\2\36\3\2\2\2\4 \3\2\2\2\6\"\3\2\2\2\b$\3\2")
-        buf.write("\2\2\n(\3\2\2\2\f\62\3\2\2\2\16\65\3\2\2\2\209\3\2\2\2")
-        buf.write("\22A\3\2\2\2\24F\3\2\2\2\26I\3\2\2\2\30L\3\2\2\2\32S\3")
-        buf.write("\2\2\2\34V\3\2\2\2\36\37\7\r\2\2\37\3\3\2\2\2 !\7\r\2")
-        buf.write("\2!\5\3\2\2\2\"#\7\r\2\2#\7\3\2\2\2$%\5\2\2\2%&\7\5\2")
-        buf.write("\2&\'\5\2\2\2\'\t\3\2\2\2()\5\2\2\2)*\7\5\2\2*+\5\2\2")
-        buf.write("\2+,\7\5\2\2,-\5\2\2\2-.\7\5\2\2./\5\2\2\2/\60\7\5\2\2")
-        buf.write("\60\61\5\2\2\2\61\13\3\2\2\2\62\63\7\6\2\2\63\64\5\2\2")
-        buf.write("\2\64\r\3\2\2\2\65\66\7\7\2\2\66\67\5\4\3\2\678\5\b\5")
-        buf.write("\28\17\3\2\2\29:\7\b\2\2:;\5\6\4\2;<\7\n\2\2<=\5\n\6\2")
-        buf.write("=\21\3\2\2\2>B\5\f\7\2?B\5\16\b\2@B\5\20\t\2A>\3\2\2\2")
-        buf.write("A?\3\2\2\2A@\3\2\2\2B\23\3\2\2\2CE\5\22\n\2DC\3\2\2\2")
-        buf.write("EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2G\25\3\2\2\2HF\3\2\2\2I")
-        buf.write("J\7\t\2\2JK\5\30\r\2K\27\3\2\2\2LM\7\13\2\2MN\7\f\2\2")
-        buf.write("NO\5\2\2\2O\31\3\2\2\2PR\5\26\f\2QP\3\2\2\2RU\3\2\2\2")
-        buf.write("SQ\3\2\2\2ST\3\2\2\2T\33\3\2\2\2US\3\2\2\2VW\5\24\13\2")
-        buf.write("WX\5\32\16\2XY\7\2\2\3Y\35\3\2\2\2\5AFS")
+        buf.write("\16\4\17\t\17\3\2\3\2\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\6")
+        buf.write("\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\b\3")
+        buf.write("\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\5\nA\n\n\3")
+        buf.write("\13\7\13D\n\13\f\13\16\13G\13\13\3\f\3\f\3\f\3\r\3\r\3")
+        buf.write("\r\3\r\3\16\7\16Q\n\16\f\16\16\16T\13\16\3\17\3\17\3\17")
+        buf.write("\3\17\3\17\2\2\20\2\4\6\b\n\f\16\20\22\24\26\30\32\34")
+        buf.write("\2\2\2O\2\36\3\2\2\2\4 \3\2\2\2\6\"\3\2\2\2\b$\3\2\2\2")
+        buf.write("\n\'\3\2\2\2\f\61\3\2\2\2\16\64\3\2\2\2\208\3\2\2\2\22")
+        buf.write("@\3\2\2\2\24E\3\2\2\2\26H\3\2\2\2\30K\3\2\2\2\32R\3\2")
+        buf.write("\2\2\34U\3\2\2\2\36\37\7\r\2\2\37\3\3\2\2\2 !\7\r\2\2")
+        buf.write("!\5\3\2\2\2\"#\7\r\2\2#\7\3\2\2\2$%\5\2\2\2%&\5\2\2\2")
+        buf.write("&\t\3\2\2\2\'(\5\2\2\2()\7\5\2\2)*\5\2\2\2*+\7\5\2\2+")
+        buf.write(",\5\2\2\2,-\7\5\2\2-.\5\2\2\2./\7\5\2\2/\60\5\2\2\2\60")
+        buf.write("\13\3\2\2\2\61\62\7\6\2\2\62\63\5\2\2\2\63\r\3\2\2\2\64")
+        buf.write("\65\7\7\2\2\65\66\5\4\3\2\66\67\5\b\5\2\67\17\3\2\2\2")
+        buf.write("89\7\b\2\29:\5\6\4\2:;\7\n\2\2;<\5\n\6\2<\21\3\2\2\2=")
+        buf.write("A\5\f\7\2>A\5\16\b\2?A\5\20\t\2@=\3\2\2\2@>\3\2\2\2@?")
+        buf.write("\3\2\2\2A\23\3\2\2\2BD\5\22\n\2CB\3\2\2\2DG\3\2\2\2EC")
+        buf.write("\3\2\2\2EF\3\2\2\2F\25\3\2\2\2GE\3\2\2\2HI\7\t\2\2IJ\5")
+        buf.write("\30\r\2J\27\3\2\2\2KL\7\13\2\2LM\7\f\2\2MN\5\2\2\2N\31")
+        buf.write("\3\2\2\2OQ\5\26\f\2PO\3\2\2\2QT\3\2\2\2RP\3\2\2\2RS\3")
+        buf.write("\2\2\2S\33\3\2\2\2TR\3\2\2\2UV\5\24\13\2VW\5\32\16\2W")
+        buf.write("X\7\2\2\3X\35\3\2\2\2\5@ER")
         return buf.getvalue()
 
 
@@ -230,9 +230,6 @@ class ValorantParser ( Parser ):
                 return self.getTypedRuleContext(ValorantParser.UnidadeContext,i)
 
 
-        def OP(self):
-            return self.getToken(ValorantParser.OP, 0)
-
         def getRuleIndex(self):
             return ValorantParser.RULE_sinergia_dupla
 
@@ -256,8 +253,6 @@ class ValorantParser ( Parser ):
             self.state = 34
             self.unidade()
             self.state = 35
-            self.match(ValorantParser.OP)
-            self.state = 36
             self.unidade()
         except RecognitionException as re:
             localctx.exception = re
@@ -307,23 +302,23 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_sinergia_completa)
         try:
             self.enterOuterAlt(localctx, 1)
+            self.state = 37
+            self.unidade()
             self.state = 38
-            self.unidade()
+            self.match(ValorantParser.OP)
             self.state = 39
-            self.match(ValorantParser.OP)
+            self.unidade()
             self.state = 40
-            self.unidade()
+            self.match(ValorantParser.OP)
             self.state = 41
-            self.match(ValorantParser.OP)
+            self.unidade()
             self.state = 42
-            self.unidade()
+            self.match(ValorantParser.OP)
             self.state = 43
-            self.match(ValorantParser.OP)
-            self.state = 44
             self.unidade()
-            self.state = 45
+            self.state = 44
             self.match(ValorantParser.OP)
-            self.state = 46
+            self.state = 45
             self.unidade()
         except RecognitionException as re:
             localctx.exception = re
@@ -367,9 +362,9 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_declaracao_unidade)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 48
+            self.state = 47
             self.match(ValorantParser.AGENTE)
-            self.state = 49
+            self.state = 48
             self.unidade()
         except RecognitionException as re:
             localctx.exception = re
@@ -417,11 +412,11 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_declaracao_sinergia)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 51
+            self.state = 50
             self.match(ValorantParser.SINERGIA)
-            self.state = 52
+            self.state = 51
             self.sinergia()
-            self.state = 53
+            self.state = 52
             self.sinergia_dupla()
         except RecognitionException as re:
             localctx.exception = re
@@ -472,13 +467,13 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_declaracao_mapas)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 55
+            self.state = 54
             self.match(ValorantParser.MAPA)
-            self.state = 56
+            self.state = 55
             self.mapa()
-            self.state = 57
+            self.state = 56
             self.match(ValorantParser.COMPOSICAO)
-            self.state = 58
+            self.state = 57
             self.sinergia_completa()
         except RecognitionException as re:
             localctx.exception = re
@@ -526,22 +521,22 @@ class ValorantParser ( Parser ):
         localctx = ValorantParser.DeclaracaoContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_declaracao)
         try:
-            self.state = 63
+            self.state = 62
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [ValorantParser.AGENTE]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 60
+                self.state = 59
                 self.declaracao_unidade()
                 pass
             elif token in [ValorantParser.SINERGIA]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 61
+                self.state = 60
                 self.declaracao_sinergia()
                 pass
             elif token in [ValorantParser.MAPA]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 62
+                self.state = 61
                 self.declaracao_mapas()
                 pass
             else:
@@ -590,13 +585,13 @@ class ValorantParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
+            self.state = 67
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ValorantParser.AGENTE) | (1 << ValorantParser.SINERGIA) | (1 << ValorantParser.MAPA))) != 0):
-                self.state = 65
+                self.state = 64
                 self.declaracao()
-                self.state = 70
+                self.state = 69
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -642,9 +637,9 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 20, self.RULE_saida)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 71
+            self.state = 70
             self.match(ValorantParser.ENCONTRAR)
-            self.state = 72
+            self.state = 71
             self.saida_sinergia()
         except RecognitionException as re:
             localctx.exception = re
@@ -691,11 +686,11 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 22, self.RULE_saida_sinergia)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 74
+            self.state = 73
             self.match(ValorantParser.SINERGIAS)
-            self.state = 75
+            self.state = 74
             self.match(ValorantParser.PARA)
-            self.state = 76
+            self.state = 75
             self.unidade()
         except RecognitionException as re:
             localctx.exception = re
@@ -740,13 +735,13 @@ class ValorantParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 81
+            self.state = 80
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==ValorantParser.ENCONTRAR:
-                self.state = 78
+                self.state = 77
                 self.saida()
-                self.state = 83
+                self.state = 82
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -796,11 +791,11 @@ class ValorantParser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_programa)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 84
+            self.state = 83
             self.declaracoes()
-            self.state = 85
+            self.state = 84
             self.saidas()
-            self.state = 86
+            self.state = 85
             self.match(ValorantParser.EOF)
         except RecognitionException as re:
             localctx.exception = re

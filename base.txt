@@ -11,10 +11,10 @@ agente cypher
 agente sage
 agente killjoy
 
-sinergia sinergia1 raze + fade
-sinergia sinergia2 raze + breach
-sinergia sinergia3 raze + deadlock
-sinergia sinergia4 deadlock + geeko 
+sinergia sinergia1 raze fade
+sinergia sinergia2 raze breach
+sinergia sinergia3 raze deadlock
+sinergia sinergia4 deadlock geeko 
 
 mapa bind composicao raze + brimstone + skye + cypher + viper
 mapa bind composicao raze + brimstone + skye + killjoy + viper

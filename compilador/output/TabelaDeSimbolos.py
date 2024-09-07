@@ -21,6 +21,12 @@ class TabelaDeSimbolos():
         self.tabela: dict[str, InfoTipo] = {}
         self.tipo = tipo
 
+    def __str__(self):
+        resultado = []
+        for id, info in self.tabela.items():
+            resultado.append(f"ID: {id}, Tipo: {info.tipo}, Características: {info.caracteristicas}, Quantidade: {info.quantidade}")
+        return "\n".join(resultado)
+
     class EntradaTabelaSimbolos():
         def __init__(self, nome: str, tipo: Tipo, quantidade: int, mapas: list[str]):
             self.nome = nome

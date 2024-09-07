@@ -1,1 +1,2 @@
-as unidades  ativam as sinergias
+'TabelaDeSimbolos' object has no attribute 'items'
+Fim da compilacao

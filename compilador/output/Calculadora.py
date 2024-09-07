@@ -13,46 +13,74 @@ class Calculadora(ValorantVisitor) :
 
     # Começo da árvore gerada pela análise sintática
     def visitPrograma(self, ctx: ValorantParser.ProgramaContext):
-        self.respostas.append(f'as unidades  ativam as sinergias')
-
-        return super().visitPrograma(ctx)
+        print('programa: \n')
+        for declaracao in ctx.declaracoes().declaracao():
+            print(self.visitDeclaracao(declaracao))
 
     # A linguagem TFT contém apenas declarações simples de escopo único
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
-        self.respostas.append(f'as unidades  ativam as sinergias')
-        return super().visitDeclaracao(ctx)
+        print('Visitando declaracao\n')
+
+        if ctx.declaracao_unidade():
+            return self.visitDeclaracao_unidade(ctx.declaracao_unidade())
+        elif ctx.declaracao_sinergia():
+            return self.visitDeclaracao_sinergia(ctx.declaracao_sinergia())
+        elif ctx.declaracao_mapas():
+            return self.visitDeclaracao_mapa(ctx.declaracao_mapas())
     
     def visitDeclaracao_mapa(self, ctx:ValorantParser.Declaracao_mapasContext):
-        self.respostas.append(f'as unidades  ativam as sinergias')
+        print(' Declaração mapa\n')
         mapa: ValorantParser.CaracteristicaContext = ctx.mapa()
         id_mapa = mapa.getText()
         self.tabela.adicionar(id_mapa, Tipo.MAPA)
         return super().visitDeclaracao_mapa(ctx)
     
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
-        self.respostas.append(f'as unidades  ativam as sinergias')
+        print(ctx.getText())
+        print(' Declaração sinergia\n')
+
+        # Obtendo o identificador de sinergia
         sinergia: ValorantParser.SinergiaContext = ctx.sinergia()
         id_sinergia = sinergia.getText()
-        caracteristica = ctx.caracteristica().getText()
-        quantidade = int(ctx.NUMERO().getText())
-        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, quantidade=quantidade, caracteristicas=[caracteristica])
+        print('     ' + id_sinergia)
+
+        # Obtendo as unidades da sinergia
+        unidades = []
+        sinergia_dupla = ctx.sinergia_dupla()
+        if sinergia_dupla:
+            for unidade_ctx in sinergia_dupla.unidade():
+                unidades.append(unidade_ctx.getText())
+
+        # Printando as unidades da sinergia
+        print('     Unidades:')
+        for unidade in unidades:
+            print('       ' + unidade)
+
+        print('tabela')
+        for id, info in self.tabela.items():
+            print(f"ID: {id}, Tipo: {info.tipo}, Características: {info.caracteristicas}, Quantidade: {info.quantidade}")
+
+        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades=[unidade])
         return super().visitDeclaracao_sinergia(ctx)
     
     def visitDeclaracao_unidade(self, ctx:ValorantParser.Declaracao_unidadeContext):
-        self.respostas.append(f'as unidades  ativam as sinergias')
-        unidade: ValorantParser.UnidadeContext = ctx.unidade()
+        print(' Declaração unidade\n')
+
+        # Obtendo o identificador de unidade
+        unidade: TFTParser.UnidadeContext = ctx.unidade()
         id_unidade = unidade.getText()
-        caracteristicas: list[str] = list()
-        for caracteristica in ctx.caracteristica():
-            id_caracteristica = caracteristica.getText()
-            caracteristicas.append(id_caracteristica)
-        self.tabela.adicionar(id_unidade, Tipo.UNIDADE, caracteristicas=caracteristicas)
-        return super().visitDeclaracao_unidade(ctx)
+        print('     agente: ' + id_unidade)
+
+
+        self.tabela.adicionar(id_unidade, Tipo.UNIDADE)
+        # return super().visitDeclaracao_unidade(ctx)
     
     def visitSaida(self, ctx: ValorantParser.SaidaContext):
+        print('teste')
         return super().visitSaida(ctx)
     
     def visitSaida_sinergia(self, ctx: ValorantParser.Saida_sinergiaContext):
+        print('teste')
         possibilidades = []
         unidades = []
         # Atualizar a quantidade de unidades disponiveis para cada caracteristica
