@@ -48,7 +48,11 @@ class Calculadora(ValorantVisitor) :
             for unidade in unidades:
                 print(f'      {unidade}')
         
-        self.tabela.adicionar(mapa, Tipo.MAPA)
+        self.tabela.adicionar(mapa, Tipo.MAPA, unidades)
+        informacao = []
+        informacao.append(mapa)
+        for unidade in unidades[1:]:
+            self.tabela.atualizar(unidade, informacao)
         return super().visitDeclaracao_mapa(ctx)
 
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
@@ -95,56 +99,41 @@ class Calculadora(ValorantVisitor) :
         sinergia = ctx.saida_sinergia()
         if ctx.saida_sinergia():
             return self.visitSaida_sinergia(ctx.saida_sinergia())
-        return super().visitSaida(ctx)
+        return super().visitSaida_sinergia(ctx)
     
     def visitSaida_sinergia(self, ctx: ValorantParser.Saida_sinergiaContext):
         unidade = ctx.unidade().getText()
         
         print('Agente: ' + unidade)
 
-        for id, info in self.tabela.tabela.items():
-            # print(info)
-            print(f"ID: {id}, Tipo: {info.tipo}, informacoes: {info.mapas}")
+        # Pegando as sinergias com agentes
+        agentes = self.tabela.tabela[unidade].mapas
+        agentes_string = unidade + ' possui sinergia com: '
+        auxiliar = '\n' + unidade + ' participa das seguintes composicoes: '
+        mapas = []
 
-        possibilidades = []
-        unidades = []
-        # Atualizar a quantidade de unidades disponiveis para cada caracteristica
-        for unidade in ctx.unidade():
-            unidades.append(unidade.getText())
-            infoUnidade = self.tabela.tabela.get(unidade.getText())
-            quantidades = self.getCaracteristicasCount(infoUnidade)
-            # Inicializar uma entrada no vetor de possibilidades apenas se uma unidade passada na query de saida
-            # possuir tal caracteristica
-            for chave, entrada in zip(self.tabela.tabela.keys(), self.tabela.tabela.values()):
-                for tipoDisponivel in quantidades.keys():
-                    if tipoDisponivel in entrada.caracteristicas and entrada.tipo == Tipo.SINERGIA:
-                        possibilidades.append({ 'sinergia': chave, 'quantidade': entrada.quantidade, 'tipo': tipoDisponivel })
-        # Calcular de modo guloso
-        tiposUtilizados = {}
-        for possibilidade in possibilidades:
-            if tiposUtilizados.get(possibilidade['tipo']) == None:
-                tiposUtilizados[possibilidade['tipo']] = { 'sinergia': possibilidade['sinergia'], 'quantidade': possibilidade['quantidade'] }
-            elif possibilidade['quantidade'] > tiposUtilizados[possibilidade['tipo']]['quantidade']:
-                tiposUtilizados[possibilidade['tipo']] = { 'sinergia': possibilidade['sinergia'], 'quantidade': possibilidade['quantidade'] }
-        # Montando a string contendo a lista de unidades
-        unidadesString = ''
-        for i in range(len(unidades)):
-            unidadesString += unidades[i]
-            if i < len(unidades) - 2:
-                unidadesString += ', '
-            elif i < len(unidades) - 1:
-                unidadesString += ' e '
-        # Montando a string contendo as sinergias ativadas
-        sinergiasString = ''
-        contador = 0
-        for entrada in tiposUtilizados.values():
-            sinergiasString += entrada['sinergia']
-            if contador < len(tiposUtilizados.values()) - 2:
-                sinergiasString += ', '
-            elif contador < len(tiposUtilizados.values()) - 1:
-                sinergiasString += ' e '
-            contador += 1
-        self.respostas.append(f'as unidades {unidadesString} ativam as sinergias {sinergiasString}')
+        for agente in agentes:
+            if self.tabela.tabela[agente].tipo == Tipo.UNIDADE:
+                agentes_string += agente + '; '
+            else:
+                mapas.append(agente)
+
+        # Pegando as composições do agente
+        composicoes = []
+        for composicao in mapas:
+            informacao = self.tabela.tabela[composicao].mapas
+            agentes_composicao = ''
+            for info in informacao[1:]:
+                agentes_composicao += info + ' '
+            texto = '\n     ' + informacao[0] + ': ' + agentes_composicao
+            composicoes.append(texto)
+
+        self.respostas.append(agentes_string)
+        self.respostas.append(auxiliar)
+
+        for a in composicoes:
+            self.respostas.append(a)
+        
         return super().visitSaida_sinergia(ctx)
 
     def getCaracteristicasCount(self, infoTipo: InfoTipo):
