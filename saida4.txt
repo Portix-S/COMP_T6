@@ -1,0 +1,9 @@
+raze possui sinergia com: fade; breach; deadlock; 
+raze participa das seguintes composicoes: 
+     bind: raze brimstone skye cypher viper 
+     bind: raze brimstone skye killjoy viper raze possui sinergia com: fade; breach; deadlock; fade; breach; deadlock; 
+raze participa das seguintes composicoes: 
+     bind: raze brimstone skye cypher viper 
+     bind: raze brimstone skye killjoy viper 
+     bind: raze brimstone skye cypher viper 
+     bind: raze brimstone skye killjoy viper 

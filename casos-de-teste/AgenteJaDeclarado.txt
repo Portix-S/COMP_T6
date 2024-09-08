@@ -1,5 +1,8 @@
+
+
 agente raze
-agente fade
+agente raze
+agente raze
 agente deadlock
 agente breach
 agente geeko
@@ -10,11 +13,15 @@ agente brimstone
 agente cypher
 agente sage
 agente killjoy
+agente viper
+agente omem
+agente fade
 
 sinergia sinergia1 raze fade
 sinergia sinergia2 raze breach
 sinergia sinergia3 raze deadlock
-sinergia sinergia4 deadlock geeko 
+sinergia sinergia4 deadlock geeko
+sinergia sinergia10 raze kayo
 
 mapa bind1 composicao bind + raze + brimstone + skye + cypher + viper
 mapa bind2 composicao bind + raze + brimstone + skye + killjoy + viper
