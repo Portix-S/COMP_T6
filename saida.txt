@@ -1,0 +1,2 @@
+'UnidadeContext' object is not iterable
+Fim da compilacao

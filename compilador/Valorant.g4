@@ -41,6 +41,5 @@ declaracoes: (declaracao)*;
 
 saida: 'encontrar' saida_sinergia;
 saida_sinergia: 'sinergias' 'para' unidade;
-saidas: (saida)*;
 
-programa: declaracoes saidas EOF;
+programa: declaracoes saida EOF;

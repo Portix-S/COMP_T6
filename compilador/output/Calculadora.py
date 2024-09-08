@@ -15,7 +15,12 @@ class Calculadora(ValorantVisitor) :
     def visitPrograma(self, ctx: ValorantParser.ProgramaContext):
         print('programa: \n')
         for declaracao in ctx.declaracoes().declaracao():
-            print(self.visitDeclaracao(declaracao))
+            self.visitDeclaracao(declaracao)
+        
+        if ctx.saida():
+            self.visitSaida(ctx.saida())
+
+        return super().visitPrograma(ctx)
 
     # A linguagem Valorant contém apenas declarações simples de escopo único
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
@@ -47,7 +52,7 @@ class Calculadora(ValorantVisitor) :
         return super().visitDeclaracao_mapa(ctx)
 
     def visitDeclaracao_sinergia(self, ctx:ValorantParser.Declaracao_sinergiaContext):
-        print(ctx.getText())
+        # print(ctx.getText())
         print(' Declaração sinergia\n')
 
         # Obtendo o identificador de sinergia
@@ -67,10 +72,9 @@ class Calculadora(ValorantVisitor) :
         for unidade in unidades:
             print('       ' + unidade)
 
-        print('tabela')
-
-        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades[0])
-        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades[1])
+        self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades)
+        self.tabela.atualizar(unidades[0], unidades)
+        self.tabela.atualizar(unidades[1], unidades)
 
         return super().visitDeclaracao_sinergia(ctx)
     
@@ -87,11 +91,21 @@ class Calculadora(ValorantVisitor) :
         # return super().visitDeclaracao_unidade(ctx)
     
     def visitSaida(self, ctx: ValorantParser.SaidaContext):
-        print('teste')
+        print('--' * 30)
+        sinergia = ctx.saida_sinergia()
+        if ctx.saida_sinergia():
+            return self.visitSaida_sinergia(ctx.saida_sinergia())
         return super().visitSaida(ctx)
     
     def visitSaida_sinergia(self, ctx: ValorantParser.Saida_sinergiaContext):
-        print('teste')
+        unidade = ctx.unidade().getText()
+        
+        print('Agente: ' + unidade)
+
+        for id, info in self.tabela.tabela.items():
+            # print(info)
+            print(f"ID: {id}, Tipo: {info.tipo}, informacoes: {info.mapas}")
+
         possibilidades = []
         unidades = []
         # Atualizar a quantidade de unidades disponiveis para cada caracteristica

@@ -116,15 +116,6 @@ class ValorantListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ValorantParser#saidas.
-    def enterSaidas(self, ctx:ValorantParser.SaidasContext):
-        pass
-
-    # Exit a parse tree produced by ValorantParser#saidas.
-    def exitSaidas(self, ctx:ValorantParser.SaidasContext):
-        pass
-
-
     # Enter a parse tree produced by ValorantParser#programa.
     def enterPrograma(self, ctx:ValorantParser.ProgramaContext):
         pass
