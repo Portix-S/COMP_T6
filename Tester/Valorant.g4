@@ -28,7 +28,7 @@ unidade: IDENT;
 sinergia: IDENT;
 mapa: IDENT;
 
-// Regras de produção da gramática TFT.
+// Regras de produção da gramática Valorant.
 sinergia_dupla: unidade unidade;
 sinergia_completa: unidade OP unidade OP unidade OP unidade OP unidade;
 

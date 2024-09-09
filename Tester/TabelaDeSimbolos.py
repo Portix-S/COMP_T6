@@ -45,7 +45,7 @@ class TabelaDeSimbolos():
                         informacao.append(mapa)
                 info.mapas = informacao
         else:
-            print(f"Erro TAbela: {nome} não encontrado na tabela.")
+            print(f"Erro Tabela: {nome} não encontrado na tabela.")
 
     def adicionar(self, nome: str, tipo: Tipo, mapas: list[str] = list()):
         if self.existe(nome):

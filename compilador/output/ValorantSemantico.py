@@ -14,7 +14,6 @@ class ValorantSemantico(ValorantVisitor) :
     def visitPrograma(self, ctx: ValorantParser.ProgramaContext):
         return super().visitPrograma(ctx)
 
-    # A linguagem TFT contém apenas declarações simples de escopo único
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
         return super().visitDeclaracao(ctx)
     

@@ -13,7 +13,7 @@ agente cypher
 agente sage
 agente killjoy
 agente viper
-angente omem
+agente omem
 
 sinergia sinergia1 raze fade
 sinergia sinergia2 raze breach
