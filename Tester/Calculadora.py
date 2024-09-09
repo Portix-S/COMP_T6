@@ -51,7 +51,7 @@ class Calculadora(ValorantVisitor) :
         self.tabela.adicionar(mapa, Tipo.MAPA, unidades)
         informacao = []
         informacao.append(mapa)
-        for unidade in unidades[1:]:
+        for unidade in unidades[::]:
             self.tabela.atualizar(unidade, informacao)
         return super().visitDeclaracao_mapa(ctx)
 
@@ -94,16 +94,12 @@ class Calculadora(ValorantVisitor) :
         self.tabela.adicionar(id_unidade, Tipo.UNIDADE)
         return super().visitDeclaracao_unidade(ctx)
     
-    def visitSaida(self, ctx: ValorantParser.SaidaContext):
-        print('--' * 30)
-        sinergia = ctx.saida_sinergia()
-        if ctx.saida_sinergia():
-            return self.visitSaida_sinergia(ctx.saida_sinergia())
-        return super().visitSaida_sinergia(ctx)
-    
     def visitSaida_sinergia(self, ctx: ValorantParser.Saida_sinergiaContext):
         unidade = ctx.unidade().getText()
-        
+
+        # Limpeza das respostas para evitar duplicações
+        self.respostas = []
+
         print('Agente: ' + unidade)
 
         # Pegando as sinergias com agentes
@@ -114,33 +110,31 @@ class Calculadora(ValorantVisitor) :
 
         for agente in agentes:
             if self.tabela.tabela[agente].tipo == Tipo.UNIDADE:
-                agentes_string += agente + '; '
+                if agente not in agentes_string:
+                    agentes_string += agente + '; '
             else:
-                mapas.append(agente)
+                if agente not in mapas:
+                    mapas.append(agente)
 
         # Pegando as composições do agente
         composicoes = []
+        i = 0
         for composicao in mapas:
             informacao = self.tabela.tabela[composicao].mapas
             agentes_composicao = ''
-            for info in informacao[1:]:
+            for info in informacao:
                 agentes_composicao += info + ' '
-            texto = '\n     ' + informacao[0] + ': ' + agentes_composicao
-            composicoes.append(texto)
+            texto = '\n     ' + mapas[i] + ': ' + agentes_composicao
+            i += 1
+            if texto not in composicoes:
+                composicoes.append(texto)
 
         self.respostas.append(agentes_string)
-        self.respostas.append(auxiliar)
-
-        for a in composicoes:
-            self.respostas.append(a)
         
-        return super().visitSaida_sinergia(ctx)
+        if composicoes:
+            self.respostas.append(auxiliar)
+            for a in composicoes:
+                self.respostas.append(a)
 
-    def getCaracteristicasCount(self, infoTipo: InfoTipo):
-        quantidades: dict[str, int] = {}
-        for caracteristica in infoTipo.caracteristicas:
-            if quantidades.get(caracteristica) == None:
-                quantidades[caracteristica] = 1
-            else:
-                quantidades[caracteristica] += 1
-        return quantidades
+
+        return super().visitSaida_sinergia(ctx)

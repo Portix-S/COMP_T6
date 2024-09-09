@@ -10,11 +10,12 @@ class ValorantSemantico(ValorantVisitor) :
 
     tabela: TabelaDeSimbolos = TabelaDeSimbolos(Tipo.__INTERNAL__)
 
+
     # Começo da árvore gerada pela análise sintática
     def visitPrograma(self, ctx: ValorantParser.ProgramaContext):
         return super().visitPrograma(ctx)
 
-    # A linguagem TFT contém apenas declarações simples de escopo único
+    
     def visitDeclaracao(self, ctx:ValorantParser.DeclaracaoContext):
         return super().visitDeclaracao(ctx)
     
@@ -60,6 +61,13 @@ class ValorantSemantico(ValorantVisitor) :
             if unidades_repetidas:
                 ValorantSemanticoUtils.adicionarErroSemantico(sinergia.start, f'Sinergia "{id_sinergia}" contém agentes repetidos: {", ".join(unidades_repetidas)}')
 
+            # Verifica se há sinergia com os mesmo agentes antes
+            for id_sin, info in self.tabela.tabela.items():  # Corrigido aqui: info é um objeto InfoTipo
+                if info.tipo == Tipo.SINERGIA and set(info.mapas) == set(unidades):
+                    ValorantSemanticoUtils.adicionarErroSemantico(sinergia.start, f'Sinergia entre os agentes {", ".join(unidades)} já existe como "{id_sin}"')
+                    break
+
+
             # Adiciona a sinergia e atualiza a tabela de símbolos
             self.tabela.adicionar(id_sinergia, Tipo.SINERGIA, unidades)
             for unidade in unidades:
@@ -70,38 +78,44 @@ class ValorantSemantico(ValorantVisitor) :
         return super().visitDeclaracao_sinergia(ctx)
 
     
-    def visitDeclaracao_mapa(self, ctx: ValorantParser.Declaracao_mapasContext):
-        print(' Declaração mapa\n')
-        mapa = ctx.mapa().getText()
-        print(f'    Mapa: {mapa}')
-        
-        # Verificar se o mapa já foi declarado
-        if self.tabela.existe(mapa):
-            ValorantSemanticoUtils.adicionarErroSemantico(ctx.mapa().start, f'Mapa "{mapa}" já declarado anteriormente')
+    # Declaracao Mapas
+    def visitDeclaracao_mapas(self, ctx: ValorantParser.Declaracao_mapasContext):
+        mapas : ValorantParser.Declaracao_mapasContext = ctx.mapa()
+        mapa = mapas.getText()
+
+        if( self.tabela.existe(mapa)):
+            ValorantSemanticoUtils.adicionarErroSemantico(mapas.start, f'Mapa "{mapa}" já declarada anteriormente')
         else:
-            # Verificar se o mapa contém agentes que já estão em outro mapa
-            unidades = []
             sinergia_completa = ctx.sinergia_completa()
             if sinergia_completa:
                 unidades = [u.getText() for u in sinergia_completa.unidade()]
                 print('    Sinergias:')
                 for unidade in unidades:
                     print(f'      {unidade}')
+            informacao = []
+
+
+             # Verificar se algum agente não foi declarado anteriormente
+            agentes_nao_declarados = [u for u in unidades if not self.tabela.existe(u)]
+            if agentes_nao_declarados:
+                for agente in agentes_nao_declarados:
+                    ValorantSemanticoUtils.adicionarErroSemantico(ctx.mapa().start, f'Agente "{agente}" não declarado')
                 
-                # Verificar se algum agente já está associado a outro mapa
-                for unidade in unidades:
-                    if self.tabela.existe(unidade):
-                        info = self.tabela.verificar(unidade)
-                        if info.tipo == Tipo.MAPA:
-                            ValorantSemanticoUtils.adicionarErroSemantico(ctx.mapa().start, f'Agente "{unidade}" já associado ao mapa "{info.nome}"')
-                    else:
-                        ValorantSemanticoUtils.adicionarErroSemantico(ctx.mapa().start, f'Agente "{unidade}" não declarado')
+    
+            # Verificar agentes duplicados na composição
+            unidades_set = set()
+            for unidade in unidades:
+                if unidade in unidades_set:
+                    ValorantSemanticoUtils.adicionarErroSemantico(ctx.mapa().start, f'Agente duplicado na composição: "{unidade}"')
+                unidades_set.add(unidade)
+            
             
             # Adiciona o mapa e atualiza a tabela de símbolos
             self.tabela.adicionar(mapa, Tipo.MAPA, unidades)
             informacao = [mapa]
             for unidade in unidades:
                 self.tabela.atualizar(unidade, informacao)
+
 
         return super().visitDeclaracao_mapa(ctx)
 

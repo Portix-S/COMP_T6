@@ -1,0 +1,28 @@
+
+
+agente raze
+agente raze
+agente deadlock
+agente breach
+agente geeko
+agente jett
+agente skye
+agente kayo
+agente brimstone
+agente cypher
+agente sage
+agente killjoy
+agente viper
+agente omem
+agente fade
+
+sinergia sinergia1 raze fade
+sinergia sinergia2 raze breach
+sinergia sinergia3 raze deadlock
+sinergia sinergia4 deadlock geeko
+
+mapa bind composicao raze + brimstone + skye + cypher + viper
+mapa icebox composicao raze + brimstone + skye + killjoy + viper
+mapa heaven composicao jett + breach + fade + omem + killjoy
+
+encontrar sinergias para raze

@@ -1,4 +1,4 @@
-agente raze
+agent raze
 agente fade
 agente deadlock
 agente breach
@@ -13,15 +13,13 @@ agente killjoy
 agente viper
 agente omem
 
-/Teste
-
 sinergia sinergia1 raze fade
 sinergia sinergia2 raze breach
 sinergia sinergia3 raze deadlock
 sinergia sinergia4 deadlock geeko 
 
-mapa bind1 composicao bind + raze + brimstone + skye + cypher + viper
-mapa bind2 composicao bind + raze + brimstone + skye + killjoy + viper
-mapa heaven1 composicao heaven + jett + breach + fade + omem + killjoy
+mapa bind composicao raze + brimstone + skye + cypher + viper
+mapa icebox composicao raze + brimstone + skye + killjoy + viper
+mapa heaven composicao jett + breach + fade + omem + killjoy
 
 encontrar sinergias para raze

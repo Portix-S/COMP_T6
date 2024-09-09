@@ -30,7 +30,7 @@ mapa: IDENT;
 
 // Regras de produção da gramática TFT.
 sinergia_dupla: unidade unidade;
-sinergia_completa: unidade OP unidade OP unidade OP unidade OP unidade OP unidade;
+sinergia_completa: unidade OP unidade OP unidade OP unidade OP unidade;
 
 declaracao_unidade: 'agente' unidade;
 declaracao_sinergia: 'sinergia' sinergia sinergia_dupla;

@@ -1,0 +1,21 @@
+agente raze
+agente fade
+agente deadlock
+agente breach
+agente geeko
+agente jett
+agente skye
+agente kayo
+agente brimstone
+agente cypher
+agente sage
+agente killjoy
+agente viper
+agente omem
+
+sinergia sinergia1 raze fade
+sinergia sinergia2 raze breach
+sinergia sinergia3 raze deadlock
+sinergia sinergia4 deadlock geeko 
+
+encontrar sinergias para raze

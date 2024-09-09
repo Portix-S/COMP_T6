@@ -34,37 +34,26 @@ agente brimstone
 agente cypher
 agente sage
 agente killjoy
+agente viper
+agente omem
 
-sinergia raze + fade
-sinergia raze + breach
-sinergia raze + deadlock
-sinergia deadlock + geeko 
-sinergia jett + skye
-sinergia Jett + breach
-sinergia jett + kayo
-sinergia sage + raze
-sinergia sova + phoenix
-sinergia brimstone + cypher
-sinergia breach + brimstone
-sinergia breach + phoenix
-sinergia cypher + killjoy
-sinergia sage + sova
-sinergia jett + omen
+sinergia sinergia1 raze fade
+sinergia sinergia2 raze breach
+sinergia sinergia3 raze deadlock
+sinergia sinergia4 deadlock geeko 
 
+mapa bind composicao raze + brimstone + skye + cypher + viper
+mapa icebox composicao raze + brimstone + skye + killjoy + viper
+mapa heaven composicao jett + breach + fade + omem + killjoy
 
-mapas bind raze + brimstone + skye + cypher + viper
-mapas bind raze + brimstone + skye + killjoy + viper
-mapas heaven jett + breach + fade + omem + killjoy
-mapas lotus raze + fade + breach + chyfer omem
-
-encontrar raze
+encontrar sinergias para raze
 
 // Saída esperada
 
-sinergia com fade breach deadlock sage
-composicao bind raze + brimstone + skye + cypher + viper
-composicao bind raze + brimstone + skye + killjoy + viper
-composicao lotus raze + fade + breach + chyfer omem
+raze possui sinergia com: fade; breach; deadlock; 
+raze participa das seguintes composicoes: 
+     bind: raze brimstone skye cypher viper 
+     icebox: raze brimstone skye killjoy viper 
 
 ```
 
