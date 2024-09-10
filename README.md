@@ -62,3 +62,16 @@ A seguir há o vídeo explicado do trabalho.
 
 https://github.com/user-attachments/assets/06f6a29c-08d1-4995-b02a-e1795b3016f3
 
+
+## Como Rodar ?
+
+O código estra estruturado em python3 e segue o formato:
+- Argumento para rodar um código em python3 - Ex: python3
+- Arquivo Main para rodar - Ex: Principal/Main.py
+- Arquivo .txt de entrada - Ex: casos-de-teste/Acertos/Valorant1.txt
+- Arquivo .txt de saída - Ex: saída.txt
+
+```
+python3 Principal/Main.py casos-de-teste/Acertos/Valorant1.txt saida.txt
+```
+
