@@ -1,0 +1,4 @@
+Linha 20: Agente "brimstone" não declarado
+Linha 21: Agente "brimstone" não declarado
+
+Fim da compilacao
