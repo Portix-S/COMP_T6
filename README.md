@@ -59,3 +59,6 @@ raze participa das seguintes composicoes:
 
 ## Explicação Vídeo
 A seguir há o vídeo explicado do trabalho.
+
+https://github.com/user-attachments/assets/06f6a29c-08d1-4995-b02a-e1795b3016f3
+
