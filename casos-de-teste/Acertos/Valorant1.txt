@@ -23,3 +23,10 @@ mapa icebox composicao raze + brimstone + skye + killjoy + viper
 mapa heaven composicao jett + breach + fade + omem + killjoy
 
 encontrar sinergias para raze
+
+// Saida esperada 
+
+// raze possui sinergia com: fade; breach; deadlock; 
+// raze participa das seguintes composicoes: 
+//      bind: raze brimstone skye cypher viper 
+//      icebox: raze brimstone skye killjoy viper 

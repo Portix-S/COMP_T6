@@ -7,7 +7,7 @@
 - Rafael Naoki Arakaki Uyeta - 800207
 ## Ferramentas
 
-- Foi utilizado o Antlr 4.13
+- Foi utilizado o Antlr 4.7.2
 - Foi utilizado o Python 3
 
 
